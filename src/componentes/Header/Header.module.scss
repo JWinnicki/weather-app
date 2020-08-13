@@ -1,0 +1,12 @@
+.Header {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    padding: 2em;
+
+    &Title {
+        font-size: 3em;
+    }
+}

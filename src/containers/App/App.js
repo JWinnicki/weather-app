@@ -1,11 +1,12 @@
-import React, {useState} from 'react';
-import axios from '../../axios-weather';
+import React, {/* useState */} from 'react';
+//import axios from '../../axios-weather';
 
-import key from '../../api-key';
+//import key from '../../api-key';
+import MainTemplate from '../../templates/MainTemplate/MainTemplate';
 
 
 const App = () => {
-  const [text, setText] = useState('');
+/*   const [text, setText] = useState('');
 
 
   const onSubmitHandler = async (city, key) => {
@@ -13,18 +14,22 @@ const App = () => {
     console.log(response.data);
     const response2 = await axios.get(`weather?q=${city}&appid=${key}&units=metric`);
     console.log(response2.data);
-  }
+  } */
 
-  return (
-    <div>
-      <input 
-        type='text'
-        value={text}
-        onChange={(e) => setText(e.target.value)}
-      />
-      <button type='button' onClick={() => onSubmitHandler(text, key)}>Submit</button>
-    </div>
-  );
+	return (
+		<div>
+			<MainTemplate>
+
+			</MainTemplate>
+
+		 {/*  <input 
+		    type='text'
+		    value={text}
+		    onChange={(e) => setText(e.target.value)}
+		  />
+		  <button type='button' onClick={() => onSubmitHandler(text, key)}>Submit</button> */}
+		</div>
+	);
 }
 
 export default App;

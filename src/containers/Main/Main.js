@@ -5,7 +5,7 @@ import SearchBar from '../../components/SearchBar/SearchBar';
 
 const Main = () => {
     return (
-        <div>
+        <div className={styles.Main}>
             <SearchBar />
         </div>
     );

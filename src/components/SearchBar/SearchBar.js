@@ -17,18 +17,22 @@ const SearchBar = () => {
     }
 
     return (
-        <div>
-            <SearchInput
-                type='text'
-                value={text}
-		        onChange={(e) => setText(e.target.value)}
-            />
-            <SearchButton 
-                type='button' 
-                onClick={() => onSubmitHandler(text, key)}
-            >
-                Search
-            </SearchButton>
+        <div className={styles.SearchBar}>
+            <div className={styles.SearchBarInputContainer}>
+                <SearchInput
+                    type='text'
+                    value={text}
+                    onChange={(e) => setText(e.target.value)}
+                />
+            </div>
+            <div className={styles.SearchBarButtonContainer}>
+                <SearchButton 
+                    type='button' 
+                    onClick={() => onSubmitHandler(text, key)}
+                >
+                    Search
+                </SearchButton>
+            </div>
         </div>
     );
 }

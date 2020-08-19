@@ -5,7 +5,7 @@ import styles from './SearchInput.module.scss';
 const SearchInput = props => {
 
     return (
-        <input {...props}/>
+        <input className={styles.SearchInput} {...props}/>
     );
 }
 

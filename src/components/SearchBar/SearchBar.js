@@ -30,7 +30,6 @@ const SearchBar = () => {
                     type='button' 
                     onClick={() => onSubmitHandler(text, key)}
                 >
-                    Search
                 </SearchButton>
             </div>
         </div>

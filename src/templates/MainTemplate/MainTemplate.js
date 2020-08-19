@@ -5,12 +5,15 @@ import styles from './MainTemplate.module.scss';
 
 const MainTemplate = ({children}) => (
     <>
-        <header>
+        <header className={styles.HeaderContainer}>
             <Header />
         </header>
         <main className={styles.MainContainer}>
             {children}
         </main>
+        <footer  className={styles.FooterContainer}>
+
+        </footer>
     </>
 );
 

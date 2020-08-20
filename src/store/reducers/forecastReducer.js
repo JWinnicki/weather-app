@@ -1,44 +1,40 @@
-//import * as actionTypes from '../actions/actionTypes';
+import * as actionTypes from '../actions/actionTypes';
 
 const initialState = {
     error: false,
-    errorMsg: null,
-    loading: false,
-    token: null,
-    userId: null
+    errorMsg: '',
+    isLoading: false,
+    isTouched: false,
+    city: '',
+    currentForecast: {},
+    historyForecats: []
 }
 
 export default (state=initialState, action) => {
     switch(action.type) {
-        /* case actionTypes.AUTH_START:
+        case actionTypes.SEARCH_START:
             return {
                 ...state,
-                loading: true,
+                isLoading: true,
                 error: false,
-                errorMsg: null
+                city: action.city
             }
-        case actionTypes.AUTH_SUCCESS:
+        case actionTypes.SEARCH_FAIL:
             return {
                 ...state,
-                loading: false,
-                error: false,
-                errorMsg: null,
-                token: action.token,
-                userId: action.userId
-            }
-        case actionTypes.AUTH_FAIL: 
-            return {
-                ...state,
+                isLoading: false,
                 error: true,
                 errorMsg: action.errorMsg,
-                loading: false
+                currentForecast: {}
             }
-        case actionTypes.AUTH_LOGOUT:
+        case actionTypes.SEARCH_SUCCESS:
             return {
                 ...state,
-                token: null,
-                userId: null
-            } */
+                isLoading: false,
+                isTouched: true,
+                currentForecast: action.forecast,
+                historyForecats: [...state.historyForecats, action.forecast]
+            }
         default: 
             return state
     }

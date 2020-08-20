@@ -10,4 +10,10 @@
     &ButtonContainer {
         margin-left: 2em;
     }
+
+    &Touched {
+        @extend .SearchBar;
+        transform: translateY(-40vh);
+        transition: all 2s;
+    }
 }

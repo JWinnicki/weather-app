@@ -9,4 +9,8 @@
     background-position: 50% 50%;
     background-size: 50% 50%;
     background-color: white;
+
+    &:hover {
+        cursor: pointer;
+    }
 }

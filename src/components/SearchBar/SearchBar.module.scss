@@ -2,9 +2,12 @@
 
 .SearchBar {
     @include flexCenter;
+    width: 100%;
 
     &InputContainer {
-
+        width: 70%;
+        min-width: 20rem;
+        max-width: 50rem;
     }
 
     &ButtonContainer {
@@ -14,6 +17,6 @@
     &Touched {
         @extend .SearchBar;
         transform: translateY(-40vh);
-        transition: all 2s;
+        transition: all 1s ease-in;
     }
 }

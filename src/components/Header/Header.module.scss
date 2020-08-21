@@ -9,4 +9,11 @@
     &Title {
         font-size: 3em;
     }
+
+    &Touched {
+        @extend .Header;
+        transform: translateY(-50vh);
+        transition: all 1s;
+        transition-delay: .8s;
+    }
 }

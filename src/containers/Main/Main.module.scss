@@ -1,7 +1,6 @@
-@import '../../scss/mixins';
-
 .Main {
     height: 100%;
     width: 100%;
-    @include flexCenter;
+    display: grid;
+    place-items: center;
 }

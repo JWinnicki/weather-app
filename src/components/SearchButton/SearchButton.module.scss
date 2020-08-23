@@ -3,11 +3,9 @@
     width: 4rem;
     border-radius: 50%;
     border: none;
-
-    background-image: url('../../assets/magnifier.svg');
-    background-repeat: no-repeat;
-    background-position: 50% 50%;
-    background-size: 50% 50%;
+    overflow: hidden;
+    display: grid;
+    place-items: center;
     background-color: white;
 
     &:hover {

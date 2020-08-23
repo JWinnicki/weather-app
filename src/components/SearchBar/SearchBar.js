@@ -6,10 +6,10 @@ import styles from './SearchBar.module.scss';
 import SearchInput from '../SearchInput/SearchInput';
 import SearchButton from '../SearchButton/SearchButton';
 import {search} from '../../store/actions/forecast';
-/* import axios from '../../axios-weather';
-import key from '../../api-key'; */
+import MagnifierBackground from '../MagnifierBackground/MagnifierBackground'
+import Spinner from '../Spinner/Spinner';
 
-const SearchBar = ({onSubmitHandler, isTouched}) => {
+const SearchBar = ({onSubmitHandler, isTouched, isLoading}) => {
     const [text, setText] = useState('');
 
     return (
@@ -25,7 +25,10 @@ const SearchBar = ({onSubmitHandler, isTouched}) => {
                 <SearchButton 
                     type='button' 
                     onClick={() => onSubmitHandler(text)}
-                />
+                    text={text}
+                >
+                    {isLoading ? <Spinner /> : <MagnifierBackground />}
+                </SearchButton>
             </div>
         </div>
     );
@@ -33,7 +36,8 @@ const SearchBar = ({onSubmitHandler, isTouched}) => {
 
 const mapStateToProps = state => {
     return {
-        isTouched: state.isTouched
+        isTouched: state.isTouched,
+        isLoading: state.isLoading
     }
 }
 

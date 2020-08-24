@@ -1,16 +1,24 @@
 import React from 'react';
+import {connect} from 'react-redux';
 
 import styles from './Main.module.scss';
 import SearchBar from '../../components/SearchBar/SearchBar';
 import ForecastContainer from '../../components/ForecastContainer/ForecastContainer';
 
-const Main = () => {
+const Main = ({forecastArr, currentForecast}) => {
     return (
         <div className={styles.Main}>
-            <SearchBar />
-            <ForecastContainer />
+            <SearchBar/>
+            {currentForecast.name && <ForecastContainer forecastArr={forecastArr} />}
         </div>
     );
 }
 
-export default Main;
+const mapStateToProps = ({historyForecats, currentForecast}) => {
+    return {
+        forecastArr: historyForecats,
+        currentForecast
+    }
+}
+
+export default connect(mapStateToProps)(Main);

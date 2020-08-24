@@ -1,15 +1,35 @@
+@import '../../scss/mixins';
+
 .ForecastContainer {
     position: absolute;
     top: 50%;
     left: 50%;
-    transform: translate(-50%, 50vh);
-    width: 20rem;
-    height: 35rem;
-    background-color: white;
+    transform: translate(-50%, -43%);
+    width: 80%;
+    max-width: 40rem;
+    height: 70%;
+    max-height: 50rem;
+    padding: 1rem;
 
-    &Shown {
-        @extend .ForecastContainer;
-        transform: translate(-50%, -50%);
-        transition: all 1s ease-in;
+    background-color: white;
+    border-radius: 10px;
+
+    animation-name: slideIn;
+    animation-duration: 1s;
+    animation-timing-function: ease-in;
+
+    &Header {
+        @include flexSpaceBetween;
+
+    }
+}
+
+@keyframes slideIn {
+    from {
+        transform: translate(-50%, 50vh);
+    }
+
+    to {
+        transform: translate(-50%, -43%);
     }
 }

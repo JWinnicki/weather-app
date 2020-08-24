@@ -33,7 +33,7 @@ export default (state=initialState, action) => {
                 isLoading: false,
                 isTouched: true,
                 currentForecast: action.forecast,
-                historyForecats: [...state.historyForecats, action.forecast]
+                historyForecats: [action.forecast, ...state.historyForecats]
             }
         default: 
             return state

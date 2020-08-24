@@ -1,30 +1,38 @@
-import React, {useEffect, useState} from 'react';
-import {connect} from 'react-redux';
+import React, {useState} from 'react';
 
 import styles from './ForecastContainer.module.scss';
 
-const ForecastContainer = ({isLoading, isTouched}) => {
+const ForecastContainer = ({forecastArr}) => {
 
-    const [isShown, setIsShown] = useState(false);
+    const [index, setIndex] = useState(0);
 
-    useEffect(() => {
-        if(!isLoading && isTouched) {
-            setIsShown(true)
+    const increaseCounter = () => {
+        if(index > 0) {
+            setIndex(prevState => prevState - 1);
         }
-    }, [isTouched, isLoading])
+    }
 
-    //const isShown = () => !isLoading && isTouched;
+    const decreaseCounter = () => {
+        if(index < forecastArr.length - 1) {
+            setIndex(prevState => prevState + 1);
+        }
+    }
 
     return (
-        <div className={isShown ? styles.ForecastContainerShown : styles.ForecastContainer}></div>
+        <div className={styles.ForecastContainer}>
+            <div className={styles.ForecastContainerHeader}>
+                <button onClick={decreaseCounter}>prev</button>
+                <h1>{forecastArr[index].name}</h1>
+                <button onClick={increaseCounter}>next</button>
+            </div>
+            <div className={styles.ForecastContainerHeader}>
+                <h2>{forecastArr[index].weather[0].description}</h2>
+            </div>
+            <div className={styles.ForecastContainerContent}>
+
+            </div>
+        </div>
     );
 }
 
-const mapStateToProps = state => {
-    return {
-        isLoading: state.isLoading,
-        isTouched: state.isTouched
-    }
-}
-
-export default connect(mapStateToProps)(ForecastContainer);
+export default ForecastContainer;

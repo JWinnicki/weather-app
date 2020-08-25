@@ -6,8 +6,9 @@ import styles from './SearchBar.module.scss';
 import SearchInput from '../SearchInput/SearchInput';
 import SearchButton from '../SearchButton/SearchButton';
 import {search} from '../../store/actions/forecast';
-import MagnifierBackground from '../MagnifierBackground/MagnifierBackground'
+import SVGBackground from '../SVGBackground/SVGBackground'
 import Spinner from '../Spinner/Spinner';
+import icon from '../../assets/magnifier.svg';
 
 const SearchBar = ({onSubmitHandler, isTouched, isLoading}) => {
     const [text, setText] = useState('');
@@ -27,7 +28,7 @@ const SearchBar = ({onSubmitHandler, isTouched, isLoading}) => {
                     onClick={() => onSubmitHandler(text)}
                     text={text}
                 >
-                    {isLoading ? <Spinner /> : <MagnifierBackground />}
+                    {isLoading ? <Spinner /> : <SVGBackground icon={icon} />}
                 </SearchButton>
             </div>
         </div>

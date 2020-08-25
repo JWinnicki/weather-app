@@ -9,7 +9,7 @@ const Main = ({forecastArr, currentForecast}) => {
     return (
         <div className={styles.Main}>
             <SearchBar/>
-            {currentForecast.name && <ForecastContainer forecastArr={forecastArr} />}
+            {currentForecast.name && <ForecastContainer forecastArr={forecastArr} currentForecast={currentForecast} />}
         </div>
     );
 }

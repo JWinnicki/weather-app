@@ -1,0 +1,12 @@
+.MenuButton {
+    height: 4rem;
+    width: 4rem;
+    overflow: hidden;
+    display: grid;
+    place-items: center;
+    background-color: white;
+
+    &:hover {
+        cursor: pointer;
+    }
+}

@@ -18,9 +18,47 @@
     animation-duration: 1s;
     animation-timing-function: ease-in;
 
+    display: grid;
+    grid-template-rows: 15% 10% 1fr;
+    justify-items: center;
+
     &Header {
         @include flexSpaceBetween;
+        width: 100%;
+        font-size: 1.6rem;
+        grid-row: 1 / 2;
+    }
 
+    &Description {
+        display: grid;
+        place-items: center;
+        width: 100%;
+        text-transform: uppercase;
+        grid-row: 2 / 3;
+
+        &Text {
+            font-size: 1.8rem;
+        }
+    }
+
+    &Content {
+        grid-row: 3 / 4;
+        width: 100%;
+    }
+
+    &List {
+        list-style: none;
+
+        &Item {
+            padding: .5rem;
+            display: flex;
+            align-items: center;
+            min-height: 50px;
+
+            &Text {
+                font-size: 1.8rem;
+            }
+        }
     }
 }
 

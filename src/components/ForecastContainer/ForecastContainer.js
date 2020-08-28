@@ -37,25 +37,25 @@ const ForecastContainer = ({forecastArr, currentForecast}) => {
                     <SVGBackground icon={menuIcon} rotate='270'/>
                 </MenuButton>
             </div>
-            <div className={styles.ForecastContainerHeader}>
-                <h2>{forecastArr[index].weather[0].description}</h2>
+            <div className={styles.ForecastContainerDescription}>
+                <h2 className={styles.ForecastContainerDescriptionText}>{forecastArr[index].weather[0].description}</h2>
             </div>
             <div className={styles.ForecastContainerContent}>
-                <ul>
-                    <li>
-                        <p>Temperature: {forecastArr[index].main.temp}</p>
+                <ul className={styles.ForecastContainerList}>
+                    <li className={styles.ForecastContainerListItem}>
+                        <p className={styles.ForecastContainerListItemText}>Temperature: {forecastArr[index].main.temp}</p>
                     </li>
-                    <li>
-                        <p>Pressure: {forecastArr[index].main.pressure}</p>
+                    <li className={styles.ForecastContainerListItem}>
+                        <p className={styles.ForecastContainerListItemText}>Pressure: {forecastArr[index].main.pressure}</p>
                     </li>
-                    <li>
-                        <p>Humidity: {forecastArr[index].main.humidity}%</p>
+                    <li className={styles.ForecastContainerListItem}>
+                        <p className={styles.ForecastContainerListItemText}>Humidity: {forecastArr[index].main.humidity}%</p>
                     </li>
-                    <li>
-                        <p>Wind Speed: {forecastArr[index].wind.speed}m/s</p>
+                    <li className={styles.ForecastContainerListItem}>
+                        <p className={styles.ForecastContainerListItemText}>Wind Speed: {forecastArr[index].wind.speed}m/s</p>
                     </li>
-                    <li>
-                        <p>Wind Direction:</p>
+                    <li className={styles.ForecastContainerListItem}>
+                        <p className={styles.ForecastContainerListItemText}>Wind Direction:</p>
                         <div style={{width: '4rem', height: '4rem'}}>
                             <SVGBackground icon={windIcon} rotate={forecastArr[index].wind.deg}/>
                         </div>

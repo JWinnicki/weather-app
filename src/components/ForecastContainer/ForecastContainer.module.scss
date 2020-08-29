@@ -22,11 +22,26 @@
     grid-template-rows: 15% 10% 1fr;
     justify-items: center;
 
-    &Header {
+    &Controls {
         @include flexSpaceBetween;
         width: 100%;
         font-size: 1.6rem;
         grid-row: 1 / 2;
+    }
+
+    &Header {
+        overflow: hidden;
+        @include flexCenter;
+        //display: flex;
+        //align-items: center;
+        height: 100%;
+        width: 68%;
+        position: relative;
+
+        &Text {
+            white-space: nowrap;
+            position: absolute;
+        }
     }
 
     &Description {
@@ -48,6 +63,7 @@
 
     &List {
         list-style: none;
+        padding: 2rem 2rem;
 
         &Item {
             padding: .5rem;

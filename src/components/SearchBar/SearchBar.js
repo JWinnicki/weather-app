@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import {connect} from 'react-redux';
 
 
@@ -10,8 +10,12 @@ import SVGBackground from '../SVGBackground/SVGBackground'
 import Spinner from '../Spinner/Spinner';
 import icon from '../../assets/magnifier.svg';
 
-const SearchBar = ({onSubmitHandler, isTouched, isLoading}) => {
+const SearchBar = ({onSubmitHandler, isTouched, isLoading, currentForecast}) => {
     const [text, setText] = useState('');
+
+    useEffect(() => {
+        setText('');
+    }, [currentForecast])
 
     return (
         <div className={isTouched ? styles.SearchBarTouched : styles.SearchBar}>
@@ -20,6 +24,7 @@ const SearchBar = ({onSubmitHandler, isTouched, isLoading}) => {
                     type='text'
                     value={text}
                     onChange={(e) => setText(e.target.value)}
+                    placeholder='City name'
                 />
             </div>
             <div className={styles.SearchBarButtonContainer}>
@@ -35,10 +40,11 @@ const SearchBar = ({onSubmitHandler, isTouched, isLoading}) => {
     );
 }
 
-const mapStateToProps = state => {
+const mapStateToProps = ({isTouched, isLoading, currentForecast}) => {
     return {
-        isTouched: state.isTouched,
-        isLoading: state.isLoading
+        isTouched: isTouched,
+        isLoading: isLoading,
+        currentForecast: currentForecast
     }
 }
 

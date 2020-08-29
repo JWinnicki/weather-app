@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from 'react';
+import React, {useState, useEffect, useRef} from 'react';
 
 import styles from './ForecastContainer.module.scss';
 import SVGBackground from '../SVGBackground/SVGBackground';
@@ -9,6 +9,14 @@ import windIcon from '../../assets/windArrow.svg';
 const ForecastContainer = ({forecastArr, currentForecast}) => {
 
     const [index, setIndex] = useState(0);
+    const headerContainer = useRef(null);
+    const headerText = useRef(null);
+
+    useEffect(() => {
+        if(headerContainer.current && headerText.current) {
+            console.log(headerContainer.current.offsetWidth < headerText.current.offsetWidth); //// Jesli ten warunek jest prawdziwy, animacja ma dzialac
+        }
+    }, [currentForecast])
 
     useEffect(() => {
         setIndex(0);
@@ -28,11 +36,13 @@ const ForecastContainer = ({forecastArr, currentForecast}) => {
 
     return (
         <div className={styles.ForecastContainer}>
-            <div className={styles.ForecastContainerHeader}>
+            <div className={styles.ForecastContainerControls}>
                 <MenuButton onClick={decreaseCounter}>
                     <SVGBackground icon={menuIcon} rotate='90'/>
                 </MenuButton>
-                <h1>{forecastArr[index].name}</h1>
+                <div className={styles.ForecastContainerHeader} ref={headerContainer} id='random'>
+                    <h1 className={styles.ForecastContainerHeaderText} ref={headerText}>{forecastArr[index].name}</h1>
+                </div>
                 <MenuButton onClick={increaseCounter}>
                     <SVGBackground icon={menuIcon} rotate='270'/>
                 </MenuButton>

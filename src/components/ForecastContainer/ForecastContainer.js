@@ -5,18 +5,40 @@ import SVGBackground from '../SVGBackground/SVGBackground';
 import MenuButton from '../MenuButton/MenuButton';
 import menuIcon from '../../assets/menuArrow.svg';
 import windIcon from '../../assets/windArrow.svg';
+import AnimatedTitle from '../AnimatedTitle/AnimatedTitle';
 
 const ForecastContainer = ({forecastArr, currentForecast}) => {
 
     const [index, setIndex] = useState(0);
+    const [shouldAnimate, setShouldAnimate] = useState(false);
+    const [animationRange, setAnimationRange] = useState('0');
     const headerContainer = useRef(null);
     const headerText = useRef(null);
 
-    useEffect(() => {
-        if(headerContainer.current && headerText.current) {
+    const checkIfFit = () => {
+        if(headerContainer.current && headerText.current && headerContainer.current.offsetWidth < headerText.current.offsetWidth) {
             console.log(headerContainer.current.offsetWidth < headerText.current.offsetWidth); //// Jesli ten warunek jest prawdziwy, animacja ma dzialac
+            console.log(headerText.current.offsetWidth - headerContainer.current.offsetWidth);
+            const range = (headerText.current.offsetWidth - headerContainer.current.offsetWidth + 10) / 2;
+            setShouldAnimate(true);
+            setAnimationRange(`${range}px`);
+        } else {
+            setShouldAnimate(false);
+            setAnimationRange(`0`);
         }
-    }, [currentForecast])
+    }
+
+    const renderTitle = () => {
+        if(shouldAnimate) {
+            return <AnimatedTitle ref={headerText} animationRange={animationRange}>{forecastArr[index].name}</AnimatedTitle>
+        } else {
+            return <h1 className={styles.ForecastContainerHeaderText} ref={headerText}>{forecastArr[index].name}</h1>
+        }
+    }
+
+    useEffect(() => {
+        checkIfFit();
+    }, [currentForecast, index]) //Dopisac warunek zeby sie odswiezalo przy zmianie rozdzielczosci
 
     useEffect(() => {
         setIndex(0);
@@ -41,7 +63,7 @@ const ForecastContainer = ({forecastArr, currentForecast}) => {
                     <SVGBackground icon={menuIcon} rotate='90'/>
                 </MenuButton>
                 <div className={styles.ForecastContainerHeader} ref={headerContainer} id='random'>
-                    <h1 className={styles.ForecastContainerHeaderText} ref={headerText}>{forecastArr[index].name}</h1>
+                    {renderTitle()}
                 </div>
                 <MenuButton onClick={increaseCounter}>
                     <SVGBackground icon={menuIcon} rotate='270'/>

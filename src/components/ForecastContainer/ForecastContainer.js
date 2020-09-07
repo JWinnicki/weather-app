@@ -12,6 +12,7 @@ const ForecastContainer = ({forecastArr, currentForecast}) => {
     const [index, setIndex] = useState(0);
     const [shouldAnimate, setShouldAnimate] = useState(false);
     const [animationRange, setAnimationRange] = useState('0');
+    const [displayButtons, setDisplayButtons] = useState('none');
     const headerContainer = useRef(null);
     const headerText = useRef(null);
 
@@ -37,6 +38,12 @@ const ForecastContainer = ({forecastArr, currentForecast}) => {
     }
 
     useEffect(() => {
+        if(forecastArr.length > 1) {
+            setDisplayButtons('grid');
+        }
+    }, [forecastArr]);
+
+    useEffect(() => {
         checkIfFit();
     }, [currentForecast, index]) //Dopisac warunek zeby sie odswiezalo przy zmianie rozdzielczosci
 
@@ -59,13 +66,13 @@ const ForecastContainer = ({forecastArr, currentForecast}) => {
     return (
         <div className={styles.ForecastContainer}>
             <div className={styles.ForecastContainerControls}>
-                <MenuButton onClick={decreaseCounter}>
+                <MenuButton onClick={decreaseCounter} style={{display: displayButtons}}>
                     <SVGBackground icon={menuIcon} rotate='90'/>
                 </MenuButton>
                 <div className={styles.ForecastContainerHeader} ref={headerContainer} id='random'>
                     {renderTitle()}
                 </div>
-                <MenuButton onClick={increaseCounter}>
+                <MenuButton onClick={increaseCounter} style={{display: displayButtons}}>
                     <SVGBackground icon={menuIcon} rotate='270'/>
                 </MenuButton>
             </div>

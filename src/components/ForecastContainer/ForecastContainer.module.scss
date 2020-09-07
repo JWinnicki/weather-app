@@ -23,7 +23,7 @@
     justify-items: center;
 
     &Controls {
-        @include flexSpaceBetween;
+        @include flexCenter;
         width: 100%;
         font-size: 1.6rem;
         grid-row: 1 / 2;

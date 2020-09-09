@@ -6,46 +6,12 @@ import MenuButton from '../MenuButton/MenuButton';
 import menuIcon from '../../assets/menuArrow.svg';
 import windIcon from '../../assets/windArrow.svg';
 import AnimatedTitle from '../AnimatedTitle/AnimatedTitle';
+import TitleControls from '../TitleControls/TitleControls';
 
-const ForecastContainer = ({forecastArr, currentForecast}) => {
+const ForecastContainer = ({forecastArr, currentForecast, mainContainer}) => {
 
     const [index, setIndex] = useState(0);
-    const [shouldAnimate, setShouldAnimate] = useState(false);
-    const [animationRange, setAnimationRange] = useState('0');
-    const [displayButtons, setDisplayButtons] = useState('none');
-    const headerContainer = useRef(null);
-    const headerText = useRef(null);
-
-    const checkIfFit = () => {
-        if(headerContainer.current && headerText.current && headerContainer.current.offsetWidth < headerText.current.offsetWidth) {
-            console.log(headerContainer.current.offsetWidth < headerText.current.offsetWidth); //// Jesli ten warunek jest prawdziwy, animacja ma dzialac
-            console.log(headerText.current.offsetWidth - headerContainer.current.offsetWidth);
-            const range = (headerText.current.offsetWidth - headerContainer.current.offsetWidth + 10) / 2;
-            setShouldAnimate(true);
-            setAnimationRange(`${range}px`);
-        } else {
-            setShouldAnimate(false);
-            setAnimationRange(`0`);
-        }
-    }
-
-    const renderTitle = () => {
-        if(shouldAnimate) {
-            return <AnimatedTitle ref={headerText} animationRange={animationRange}>{forecastArr[index].name}</AnimatedTitle>
-        } else {
-            return <h1 className={styles.ForecastContainerHeaderText} ref={headerText}>{forecastArr[index].name}</h1>
-        }
-    }
-
-    useEffect(() => {
-        if(forecastArr.length > 1) {
-            setDisplayButtons('grid');
-        }
-    }, [forecastArr]);
-
-    useEffect(() => {
-        checkIfFit();
-    }, [currentForecast, index]) //Dopisac warunek zeby sie odswiezalo przy zmianie rozdzielczosci
+    console.log(mainContainer.current.offsetWidth);
 
     useEffect(() => {
         setIndex(0);
@@ -65,17 +31,13 @@ const ForecastContainer = ({forecastArr, currentForecast}) => {
 
     return (
         <div className={styles.ForecastContainer}>
-            <div className={styles.ForecastContainerControls}>
-                <MenuButton onClick={decreaseCounter} style={{display: displayButtons}}>
-                    <SVGBackground icon={menuIcon} rotate='90'/>
-                </MenuButton>
-                <div className={styles.ForecastContainerHeader} ref={headerContainer} id='random'>
-                    {renderTitle()}
-                </div>
-                <MenuButton onClick={increaseCounter} style={{display: displayButtons}}>
-                    <SVGBackground icon={menuIcon} rotate='270'/>
-                </MenuButton>
-            </div>
+                <TitleControls 
+                    forecastArr={forecastArr}
+                    currentForecast={currentForecast}
+                    decreaseCounter={decreaseCounter}
+                    increaseCounter={increaseCounter}
+                    arrIndex={index}
+                />
             <div className={styles.ForecastContainerDescription}>
                 <h2 className={styles.ForecastContainerDescriptionText}>{forecastArr[index].weather[0].description}</h2>
             </div>

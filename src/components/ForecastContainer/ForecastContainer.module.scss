@@ -19,21 +19,19 @@
     animation-timing-function: ease-in;
 
     display: grid;
-    grid-template-rows: 15% 10% 1fr;
+    grid-template-rows: 20% 10% 1fr;
     justify-items: center;
 
-    &Controls {
+/*     &Controls {
         @include flexCenter;
         width: 100%;
         font-size: 1.6rem;
         grid-row: 1 / 2;
-    }
+    } */
 
-    &Header {
+   /*  &Header {
         overflow: hidden;
         @include flexCenter;
-        //display: flex;
-        //align-items: center;
         height: 100%;
         width: 68%;
         position: relative;
@@ -42,7 +40,7 @@
             white-space: nowrap;
             position: absolute;
         }
-    }
+    } */
 
     &Description {
         display: grid;
@@ -63,7 +61,7 @@
 
     &List {
         list-style: none;
-        padding: 2rem 2rem;
+        padding: 0 2rem;
 
         &Item {
             padding: .5rem;

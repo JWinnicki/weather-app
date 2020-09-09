@@ -3,7 +3,7 @@ import styled from 'styled-components';
 const AnimatedTitle = styled.h1`
     white-space: nowrap;
     position: absolute;
-    transform: translateX(${props => props.animationRange || 0});
+    transform: translateX(${props => props.animationRange});
 
     animation: movingAnimation 3s infinite linear;
     

@@ -9,7 +9,6 @@
     max-width: 40rem;
     height: 70%;
     max-height: 50rem;
-    padding: 1rem;
 
     background-color: white;
     border-radius: 10px;
@@ -75,6 +74,31 @@
         }
     }
 }
+
+/* .GreyBar {
+    
+
+    &Top {
+        top: 0;
+        background-color: rgb(216, 216, 216);
+        width: 100%;
+        height: 3.5rem;
+        position: absolute;
+        border-top-right-radius: 10px;
+        border-top-left-radius: 10px;
+        z-index: 1;
+    }
+
+    &Bot {
+        bottom: 0;
+        background-color: rgb(216, 216, 216);
+        width: 100%;
+        height: 3.5rem;
+        position: absolute;
+        border-bottom-right-radius: 10px;
+        border-bottom-left-radius: 10px;
+    }
+} */
 
 @keyframes slideIn {
     from {

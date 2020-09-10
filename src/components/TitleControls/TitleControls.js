@@ -4,7 +4,6 @@ import styles from './TitleControls.module.scss';
 import SVGBackground from '../SVGBackground/SVGBackground';
 import MenuButton from '../MenuButton/MenuButton';
 import menuIcon from '../../assets/menuArrow.svg';
-import windIcon from '../../assets/windArrow.svg';
 import AnimatedTitle from '../AnimatedTitle/AnimatedTitle';
 
 const TitleControls = ({forecastArr, currentForecast, decreaseCounter, increaseCounter, arrIndex}) => {
@@ -48,10 +47,10 @@ const TitleControls = ({forecastArr, currentForecast, decreaseCounter, increaseC
 
     return (         
         <div className={styles.TitleControls}>
-            <MenuButton onClick={decreaseCounter} style={{display: displayButtons}}>
+            <MenuButton onClick={decreaseCounter} style={{display: displayButtons, borderTopLeftRadius: '10px'}}>
                 <SVGBackground icon={menuIcon} rotate='90'/>
             </MenuButton>
-            <MenuButton onClick={increaseCounter} style={{display: displayButtons}}>
+            <MenuButton onClick={increaseCounter} style={{display: displayButtons, borderTopRightRadius: '10px'}}>
                 <SVGBackground icon={menuIcon} rotate='270'/>
             </MenuButton>
             <div className={styles.TitleControlsHeader} ref={headerContainer}>

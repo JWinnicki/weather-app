@@ -55,7 +55,7 @@ const ForecastContainer = ({forecastArr, currentForecast, mainContainer}) => {
                     </li>
                     <li className={styles.ForecastContainerListItem}>
                         <p className={styles.ForecastContainerListItemText}>Wind Direction:</p>
-                        <div style={{width: '4rem', height: '4rem'}}>
+                        <div className={styles.ForecastContainerListItemIcon}>
                             <SVGBackground icon={windIcon} rotate={forecastArr[index].wind.deg}/>
                         </div>
                     </li>

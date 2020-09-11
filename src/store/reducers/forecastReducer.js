@@ -7,7 +7,9 @@ const initialState = {
     isTouched: false,
     city: '',
     currentForecast: {},
-    historyForecats: []
+    historyForecats: [],
+    shouldAnimate: false,
+    range: 0
 }
 
 export default (state=initialState, action) => {

@@ -10,12 +10,12 @@ import SVGBackground from '../SVGBackground/SVGBackground'
 import Spinner from '../Spinner/Spinner';
 import icon from '../../assets/magnifier.svg';
 
-const SearchBar = ({onSubmitHandler, isTouched, isLoading, currentForecast}) => {
+const SearchBar = ({onSubmitHandler, isTouched, isLoading, latestForecast}) => {
     const [text, setText] = useState('');
 
     useEffect(() => {
         setText('');
-    }, [currentForecast])
+    }, [latestForecast])
 
     return (
         <div className={isTouched ? styles.SearchBarTouched : styles.SearchBar}>
@@ -40,11 +40,11 @@ const SearchBar = ({onSubmitHandler, isTouched, isLoading, currentForecast}) => 
     );
 }
 
-const mapStateToProps = ({isTouched, isLoading, currentForecast}) => {
+const mapStateToProps = ({isTouched, isLoading, latestForecast}) => {
     return {
         isTouched: isTouched,
         isLoading: isLoading,
-        currentForecast: currentForecast
+        latestForecast: latestForecast
     }
 }
 

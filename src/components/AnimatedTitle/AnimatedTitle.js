@@ -5,7 +5,7 @@ const AnimatedTitle = styled.h1`
     position: absolute;
     transform: translateX(${props => props.animationRange});
 
-    animation: movingAnimation 4s infinite linear;
+    /* animation: movingAnimation 4s infinite linear; */
     
     @keyframes movingAnimation {
         0% {

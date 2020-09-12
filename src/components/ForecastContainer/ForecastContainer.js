@@ -1,28 +1,31 @@
 import React, {useState, useEffect} from 'react';
+import {connect} from 'react-redux';
 
 import styles from './ForecastContainer.module.scss';
 import SVGBackground from '../SVGBackground/SVGBackground';
 import windIcon from '../../assets/windArrow.svg';
 import TitleControls from '../TitleControls/TitleControls';
 
-const ForecastContainer = ({forecastArr, currentForecast, mainContainer}) => {
+const ForecastContainer = ({forecastArr, latestForecast, mainContainer/* , setIndex, index, range, shouldAnimate, setRange, setShouldAnimate */}) => {
 
     const [index, setIndex] = useState(0);
     //console.log(mainContainer.current.offsetWidth);
 
     useEffect(() => {
         setIndex(0);
-    }, [currentForecast]);
+    }, [latestForecast]);
 
     const increaseCounter = () => {
         if(index > 0) {
-            setIndex(prevState => prevState - 1);
+            //setIndex(index - 1);
+            setIndex(prev => prev - 1)
         }
     }
 
     const decreaseCounter = () => {
         if(index < forecastArr.length - 1) {
-            setIndex(prevState => prevState + 1);
+            //setIndex(index + 1);
+            setIndex(prev => prev + 1)
         }
     }
 
@@ -31,10 +34,14 @@ const ForecastContainer = ({forecastArr, currentForecast, mainContainer}) => {
             {/* <div className={styles.GreyBarTop}/> */}
             <TitleControls 
                 forecastArr={forecastArr}
-                currentForecast={currentForecast}
+                latestForecast={latestForecast}
                 decreaseCounter={decreaseCounter}
                 increaseCounter={increaseCounter}
                 arrIndex={index}
+                //range={range}
+                //shouldAnimate={shouldAnimate}
+                //setRange={setRange}
+                //setShouldAnimate={setShouldAnimate}
             />
             <div className={styles.ForecastContainerDescription}>
                 <h2 className={styles.ForecastContainerDescriptionText}>{forecastArr[index].weather[0].description}</h2>
@@ -66,4 +73,16 @@ const ForecastContainer = ({forecastArr, currentForecast, mainContainer}) => {
     );
 }
 
-export default ForecastContainer;
+const mapStateToProps = ({currentIndex}) => {
+    return {
+        
+    }
+}
+
+const mapDispatchToProps = dispatch => {
+    return {
+
+    }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(ForecastContainer);

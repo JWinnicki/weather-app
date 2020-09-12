@@ -36,7 +36,27 @@ export const search = city => {
                 dispatch(searchFail(error.response.data.message));
                 console.log(error.response.data.message);
             }
-
         }
+    }
+}
+
+export const setIndex = index => {
+    return {
+        type: actionTypes.SET_INDEX,
+        currentIndex: index
+    }
+}
+
+export const setRange = range => {
+    return {
+        type: actionTypes.SET_RANGE,
+        range: range
+    }
+}
+
+export const setShouldAnimate = bool => {
+    return {
+        type: actionTypes.SET_SHOULD_ANIMATE,
+        shouldAnimate: bool
     }
 }

@@ -10,7 +10,6 @@ const TitleControls = ({forecastArr, latestForecast, decreaseCounter, increaseCo
 
     const [shouldAnimate, setShouldAnimate] = useState(false);
     const [animationRange, setAnimationRange] = useState(0);
-    //const [displayButtons, setDisplayButtons] = useState('none');
     const headerContainer = useRef(null);
     const headerText = useRef(null);
 

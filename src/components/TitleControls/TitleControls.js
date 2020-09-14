@@ -6,7 +6,7 @@ import MenuButton from '../MenuButton/MenuButton';
 import menuIcon from '../../assets/menuArrow.svg';
 import AnimatedTitle from '../AnimatedTitle/AnimatedTitle';
 
-const TitleControls = ({forecastArr, latestForecast, decreaseCounter, increaseCounter, arrIndex/* , range, shouldAnimate, setRange, setShouldAnimate */}) => {
+const TitleControls = ({forecastArr, latestForecast, decreaseCounter, increaseCounter, arrIndex}) => {
 
     const [shouldAnimate, setShouldAnimate] = useState(false);
     const [animationRange, setAnimationRange] = useState(0);

@@ -7,10 +7,7 @@ const initialState = {
     isTouched: false,
     city: '',
     latestForecast: {},
-    historyForecats: [],
-    shouldAnimate: false,
-    range: 0,
-    currentIndex: 1
+    historyForecats: []
 }
 
 export default (state=initialState, action) => {
@@ -37,22 +34,8 @@ export default (state=initialState, action) => {
                 isTouched: true,
                 latestForecast: action.forecast,
                 historyForecats: [action.forecast, ...state.historyForecats],
-                currentIndex: 0
-            }
-        case actionTypes.SET_INDEX:
-            return {
-                ...state,
-                currentIndex: action.currentIndex
-            }
-        case actionTypes.SET_RANGE:
-            return {
-                ...state,
-                range: action.range
-            }
-        case actionTypes.SET_SHOULD_ANIMATE:
-            return {
-                ...state,
-                shouldAnimate: action.shouldAnimate
+                error: false,
+                errorMsg: ''
             }
         default: 
             return state

@@ -1,12 +1,14 @@
 import React from 'react';
 import {connect} from 'react-redux';
 
+import Logo from '../Logo/Logo';
 import styles from './Header.module.scss';
+
 
 const Header = ({isTouched}) => (
     <div className={isTouched ? styles.HeaderTouched : styles.Header}>
         <h1 className={styles.HeaderTitle}>
-            LOGO
+            <Logo />
         </h1>
     </div>
 );

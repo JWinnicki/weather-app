@@ -1,0 +1,40 @@
+@import '../../scss/variables';
+@import '../../scss/mixins';
+.Logo {
+    background-color: white;
+    border-radius: 10px;
+    @include flexCenter;
+
+    /* &Row {
+        @include flexCenter;
+
+        &Up {
+            @extend .LogoRow;
+            //transform: translateX(1rem);
+        }
+
+        &Down {
+            @extend .LogoRow;
+            //transform: translateX(-1rem);
+            margin-top: -2rem;
+        }
+    } */
+
+    &Text {
+        font-family: 'Bangers', cursive;
+        font-size: 4rem;
+        margin: 0 .5rem;
+        //display: inline-block;
+        //background-color: transparent;
+    }
+
+    &IconContainer {
+        width: 6rem;
+        height: 6rem;
+        background-color: transparent;
+        //position: absolute;
+        //top: 0;
+        //left: 0;
+        //transform: translate(-2rem, -5rem);
+    }
+}

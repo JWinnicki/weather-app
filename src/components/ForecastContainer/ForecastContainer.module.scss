@@ -56,6 +56,32 @@
     &Content {
         grid-row: 3 / 4;
         width: 100%;
+
+        &Main {
+            @include flexSpaceEvenly;
+
+            &Temp {
+                font-size: 4rem;
+            }
+
+            &Icon {
+                &Outer {
+                    width: 7rem;
+                    height: 7rem;
+                    overflow: hidden;
+                    position: relative;
+                }
+
+                &Inner {
+                    width: 18rem;
+                    height: 18rem;
+                    position: absolute;
+                    top: 50%;
+                    left: 50%;
+                    transform: translate(-50%, -50%);
+                }
+            }
+        }
     }
 
     &List {

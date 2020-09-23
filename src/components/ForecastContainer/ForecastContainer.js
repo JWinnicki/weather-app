@@ -39,10 +39,15 @@ const ForecastContainer = ({forecastArr, latestForecast, mainContainer}) => {
                 <h2 className={styles.ForecastContainerDescriptionText}>{forecastArr[index].weather[0].description}</h2>
             </div>
             <div className={styles.ForecastContainerContent}>
+                <div className={styles.ForecastContainerContentMain}>
+                    <p className={styles.ForecastContainerContentMainTemp}>{Math.ceil(forecastArr[index].main.temp)} <sup>o</sup>C</p>
+                    <div className={styles.ForecastContainerContentMainIconOuter}>
+                        <div className={styles.ForecastContainerContentMainIconInner}>
+                            <SVGBackground icon={`http://openweathermap.org/img/wn/${forecastArr[index].weather[0].icon}@2x.png`}/>
+                        </div>
+                    </div>
+                </div>
                 <ul className={styles.ForecastContainerList}>
-                    <li className={styles.ForecastContainerListItem}>
-                        <p className={styles.ForecastContainerListItemText}>Temperature: {Math.ceil(forecastArr[index].main.temp)} <sup>o</sup>C</p>
-                    </li>
                     <li className={styles.ForecastContainerListItem}>
                         <p className={styles.ForecastContainerListItemText}>Pressure: {forecastArr[index].main.pressure} hPa</p>
                     </li>

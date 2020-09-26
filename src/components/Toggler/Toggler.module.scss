@@ -1,0 +1,41 @@
+@import '../../scss/mixins';
+@import '../../scss/variables';
+
+.Toggler {
+    width: 100%;
+    list-style: none;
+    @include flexCenter;
+
+    &Item {
+        width: 100%;
+
+        &Button {
+            @include flexCenter;
+            height: 3.5rem;
+            width: 100%;
+            background-color: transparent;
+            font-size: 1.5rem;
+            font-weight: bold;
+            transition: all .2s;
+            border: none;
+
+            &:hover {
+                cursor: pointer;
+                background-color: $color-gray-hover;
+            }
+
+            &:active {
+                cursor: pointer;
+                background-color: $color-gray-active;
+            }
+
+
+            &Active {
+                @extend .TogglerItemButton;
+                background-color: $color-gray-main;
+            }
+        }
+
+
+    }
+}

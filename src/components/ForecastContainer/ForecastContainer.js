@@ -4,10 +4,13 @@ import styles from './ForecastContainer.module.scss';
 import SVGBackground from '../SVGBackground/SVGBackground';
 import windIcon from '../../assets/windArrow.svg';
 import TitleControls from '../TitleControls/TitleControls';
+import ForecastIconContainer from '../ForecastIconContainer/ForecastIconContainer';
+import Toggler from '../Toggler/Toggler';
 
 const ForecastContainer = ({forecastArr, latestForecast, mainContainer}) => {
 
     const [index, setIndex] = useState(0);
+    const [view, setView] = useState('General');
     //console.log(mainContainer.current.offsetWidth);
 
     useEffect(() => {
@@ -26,27 +29,20 @@ const ForecastContainer = ({forecastArr, latestForecast, mainContainer}) => {
         }
     }
 
-    return (
-        <div className={styles.ForecastContainer}>
-            <TitleControls 
-                forecastArr={forecastArr}
-                latestForecast={latestForecast}
-                decreaseCounter={decreaseCounter}
-                increaseCounter={increaseCounter}
-                arrIndex={index}
-            />
-            <div className={styles.ForecastContainerDescription}>
-                <h2 className={styles.ForecastContainerDescriptionText}>{forecastArr[index].weather[0].description}</h2>
-            </div>
-            <div className={styles.ForecastContainerContent}>
-                <div className={styles.ForecastContainerContentMain}>
-                    <p className={styles.ForecastContainerContentMainTemp}>{Math.ceil(forecastArr[index].main.temp)} <sup>o</sup>C</p>
-                    <div className={styles.ForecastContainerContentMainIconOuter}>
-                        <div className={styles.ForecastContainerContentMainIconInner}>
-                            <SVGBackground icon={`http://openweathermap.org/img/wn/${forecastArr[index].weather[0].icon}@2x.png`}/>
-                        </div>
+    const renderContent = () => {
+        if(view === 'General') {
+            return (
+                <>
+                    <div className={styles.ForecastContainerContentIcon}>
+                        <ForecastIconContainer 
+                            code={forecastArr[index].weather[0].icon}
+                        />
                     </div>
-                </div>
+                    <p className={styles.ForecastContainerContentTemp}>{Math.ceil(forecastArr[index].main.temp)} °C</p>
+                </>
+            );
+        } else {
+            return (
                 <ul className={styles.ForecastContainerList}>
                     <li className={styles.ForecastContainerListItem}>
                         <p className={styles.ForecastContainerListItemText}>Pressure: {forecastArr[index].main.pressure} hPa</p>
@@ -64,6 +60,31 @@ const ForecastContainer = ({forecastArr, latestForecast, mainContainer}) => {
                         </div>
                     </li>
                 </ul>
+            );
+        }
+    }
+
+    return (
+        <div className={styles.ForecastContainer}>
+            <TitleControls 
+                forecastArr={forecastArr}
+                latestForecast={latestForecast}
+                decreaseCounter={decreaseCounter}
+                increaseCounter={increaseCounter}
+                arrIndex={index}
+            />
+            <div className={styles.ForecastContainerDescription}>
+                <h2 className={styles.ForecastContainerDescriptionText}>{forecastArr[index].weather[0].description}</h2>
+            </div>
+            <div className={styles.ForecastContainerContent}>
+                <div className={styles.ForecastContainerContentToggler}>
+                    <Toggler 
+                        options={['General', 'Details']}
+                        click={setView}
+                        currentValue={view}
+                    />
+                </div>
+                {renderContent()}
             </div>
         </div>
     );

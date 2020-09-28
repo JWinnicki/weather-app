@@ -6,7 +6,7 @@ import MenuButton from '../MenuButton/MenuButton';
 import menuIcon from '../../assets/menuArrow.svg';
 import AnimatedTitle from '../AnimatedTitle/AnimatedTitle';
 
-const TitleControls = ({forecastArr, latestForecast, decreaseCounter, increaseCounter, arrIndex}) => {
+const TitleControls = ({decreaseCounter, increaseCounter, name}) => {
 
     const [shouldAnimate, setShouldAnimate] = useState(false);
     const [animationRange, setAnimationRange] = useState(0);
@@ -24,19 +24,19 @@ const TitleControls = ({forecastArr, latestForecast, decreaseCounter, increaseCo
             setShouldAnimate(false);
         }
     }
-
+    
     const renderTitle = () => {
         if(shouldAnimate) {
-            return <AnimatedTitle ref={headerText} animationRange={`${animationRange}px`}>{forecastArr[arrIndex].name}</AnimatedTitle>
+            return <AnimatedTitle ref={headerText} animationRange={`${animationRange}px`}>{name}</AnimatedTitle>
         } else {
-            return <h1 className={styles.TitleControlsHeaderText} ref={headerText}>{forecastArr[arrIndex].name}</h1>
+            return <h1 className={styles.TitleControlsHeaderText} ref={headerText}>{name}</h1>
         }
     }
 
     useEffect(() => {
         checkIfFit();
         return () => {};
-    }, [arrIndex, latestForecast]); //Dopisac warunek zeby sie odswiezalo przy zmianie rozdzielczosci
+    }, [name]); //Dopisac warunek zeby sie odswiezalo przy zmianie rozdzielczosci
 
     const increaseHandler = () => {
         increaseCounter();

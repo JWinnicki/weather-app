@@ -1,0 +1,14 @@
+.WeatherDescription {
+    display: grid;
+    place-items: center;
+    width: 95%;
+    text-transform: uppercase;
+    grid-row: 2 / 3;
+    position: relative;
+
+    &Text {
+        font-size: 1.8rem;
+        white-space: nowrap;
+        position: absolute;
+    }
+}

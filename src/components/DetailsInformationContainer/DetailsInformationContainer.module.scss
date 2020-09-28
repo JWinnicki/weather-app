@@ -1,0 +1,22 @@
+.DetailsContainer {
+    &List {
+        list-style: none;
+        padding: 0 2rem;
+
+        &Item {
+            padding: .5rem;
+            display: flex;
+            align-items: center;
+            min-height: 50px;
+
+            &Text {
+                font-size: 1.8rem;
+            }
+
+            &Icon {
+                width: 4rem;
+                height: 4rem;
+            }
+        }
+    }
+}

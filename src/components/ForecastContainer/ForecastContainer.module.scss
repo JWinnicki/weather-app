@@ -21,26 +21,6 @@
     grid-template-rows: 20% 10% 1fr;
     justify-items: center;
 
-/*     &Controls {
-        @include flexCenter;
-        width: 100%;
-        font-size: 1.6rem;
-        grid-row: 1 / 2;
-    } */
-
-   /*  &Header {
-        overflow: hidden;
-        @include flexCenter;
-        height: 100%;
-        width: 68%;
-        position: relative;
-
-        &Text {
-            white-space: nowrap;
-            position: absolute;
-        }
-    } */
-
     &Description {
         display: grid;
         place-items: center;
@@ -61,56 +41,6 @@
 
         &Toggler {
             grid-row: 1/2;
-        }
-
-        &Temp {
-            font-size: 5rem;
-            justify-self: center;
-            align-self: start;
-        }
-
-        &Icon {
-            width: 14rem;
-            height: 14rem;
-            justify-self: center;
-            align-self: center;
-        }
-
-        /* &Main {
-            @include flexSpaceEvenly;
-
-            &Temp {
-                font-size: 4rem;
-            }
-
-            &Icon {
-                width: 5rem;
-                height: 5rem;
-                overflow: hidden;
-                position: relative;
-                transform: scale(2);
-            }
-        } */
-    }
-
-    &List {
-        list-style: none;
-        padding: 0 2rem;
-
-        &Item {
-            padding: .5rem;
-            display: flex;
-            align-items: center;
-            min-height: 50px;
-
-            &Text {
-                font-size: 1.8rem;
-            }
-
-            &Icon {
-                width: 4rem;
-                height: 4rem;
-            }
         }
     }
 }

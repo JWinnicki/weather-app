@@ -1,0 +1,14 @@
+.GeneralContainer {
+    &Icon {
+        width: 14rem;
+        height: 14rem;
+        justify-self: center;
+        align-self: center;
+    }
+
+    &Text {
+        font-size: 5rem;
+        justify-self: center;
+        align-self: start;
+    }
+}

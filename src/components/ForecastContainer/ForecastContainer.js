@@ -1,11 +1,11 @@
 import React, {useState, useEffect} from 'react';
 
 import styles from './ForecastContainer.module.scss';
-import SVGBackground from '../SVGBackground/SVGBackground';
-import windIcon from '../../assets/windArrow.svg';
 import TitleControls from '../TitleControls/TitleControls';
-import ForecastIconContainer from '../ForecastIconContainer/ForecastIconContainer';
 import Toggler from '../Toggler/Toggler';
+import GeneralInformationContainer from '../GeneralInformationContainer/GeneralInformationContainer';
+import DetailsInformationContainer from '../DetailsInformationContainer/DetailsInformationContainer';
+import WeatherDescription from '../WeatherDescription/WeatherDescription';
 
 const ForecastContainer = ({forecastArr, latestForecast, mainContainer}) => {
 
@@ -32,34 +32,19 @@ const ForecastContainer = ({forecastArr, latestForecast, mainContainer}) => {
     const renderContent = () => {
         if(view === 'General') {
             return (
-                <>
-                    <div className={styles.ForecastContainerContentIcon}>
-                        <ForecastIconContainer 
-                            code={forecastArr[index].weather[0].icon}
-                        />
-                    </div>
-                    <p className={styles.ForecastContainerContentTemp}>{Math.ceil(forecastArr[index].main.temp)} °C</p>
-                </>
+                <GeneralInformationContainer
+                    iconCode={forecastArr[index].weather[0].icon}
+                    temperature={forecastArr[index].main.temp}
+                />
             );
         } else {
             return (
-                <ul className={styles.ForecastContainerList}>
-                    <li className={styles.ForecastContainerListItem}>
-                        <p className={styles.ForecastContainerListItemText}>Pressure: {forecastArr[index].main.pressure} hPa</p>
-                    </li>
-                    <li className={styles.ForecastContainerListItem}>
-                        <p className={styles.ForecastContainerListItemText}>Humidity: {forecastArr[index].main.humidity} %</p>
-                    </li>
-                    <li className={styles.ForecastContainerListItem}>
-                        <p className={styles.ForecastContainerListItemText}>Wind Speed: {forecastArr[index].wind.speed} m/s</p>
-                    </li>
-                    <li className={styles.ForecastContainerListItem}>
-                        <p className={styles.ForecastContainerListItemText}>Wind Direction:</p>
-                        <div className={styles.ForecastContainerListItemIcon}>
-                            <SVGBackground icon={windIcon} rotate={forecastArr[index].wind.deg}/>
-                        </div>
-                    </li>
-                </ul>
+                <DetailsInformationContainer
+                    pressure={forecastArr[index].main.pressure}
+                    humidity={forecastArr[index].main.humidity}
+                    windSpeed={forecastArr[index].wind.speed}
+                    windDirection={forecastArr[index].wind.deg}
+                />
             );
         }
     }
@@ -67,15 +52,14 @@ const ForecastContainer = ({forecastArr, latestForecast, mainContainer}) => {
     return (
         <div className={styles.ForecastContainer}>
             <TitleControls 
-                forecastArr={forecastArr}
-                latestForecast={latestForecast}
                 decreaseCounter={decreaseCounter}
                 increaseCounter={increaseCounter}
-                arrIndex={index}
+                name={forecastArr[index].name}
             />
-            <div className={styles.ForecastContainerDescription}>
+            {/* <div className={styles.ForecastContainerDescription}>
                 <h2 className={styles.ForecastContainerDescriptionText}>{forecastArr[index].weather[0].description}</h2>
-            </div>
+            </div> */}
+            <WeatherDescription description={forecastArr[index].weather[0].description}/>
             <div className={styles.ForecastContainerContent}>
                 <div className={styles.ForecastContainerContentToggler}>
                     <Toggler 

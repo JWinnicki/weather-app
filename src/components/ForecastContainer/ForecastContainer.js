@@ -56,9 +56,6 @@ const ForecastContainer = ({forecastArr, latestForecast, mainContainer}) => {
                 increaseCounter={increaseCounter}
                 name={forecastArr[index].name}
             />
-            {/* <div className={styles.ForecastContainerDescription}>
-                <h2 className={styles.ForecastContainerDescriptionText}>{forecastArr[index].weather[0].description}</h2>
-            </div> */}
             <WeatherDescription description={forecastArr[index].weather[0].description}/>
             <div className={styles.ForecastContainerContent}>
                 <div className={styles.ForecastContainerContentToggler}>

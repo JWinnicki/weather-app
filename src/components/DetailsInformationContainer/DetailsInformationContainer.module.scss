@@ -1,7 +1,8 @@
 .DetailsContainer {
     &List {
         list-style: none;
-        padding: 0 2rem;
+        width: 18rem;
+        margin: 0 auto;
 
         &Item {
             padding: .5rem;

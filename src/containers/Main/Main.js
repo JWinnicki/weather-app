@@ -5,7 +5,7 @@ import styles from './Main.module.scss';
 import SearchBar from '../../components/SearchBar/SearchBar';
 import ForecastContainer from '../../components/ForecastContainer/ForecastContainer';
 
-const Main = ({forecastArr, latestForecast}) => {
+const Main = ({forecastArr, latestForecast, errorMsg}) => {
     const mainContainer = useRef({});
     return (
         <div className={styles.Main} ref={mainContainer}>
@@ -15,15 +15,17 @@ const Main = ({forecastArr, latestForecast}) => {
                 forecastArr={forecastArr} 
                 latestForecast={latestForecast} 
                 mainContainer={mainContainer}
+                errorMsg={errorMsg}
             />}
         </div>
     );
 }
 
-const mapStateToProps = ({historyForecats, latestForecast, currentIndex, shouldAnimate, range}) => {
+const mapStateToProps = ({historyForecats, latestForecast, errorMsg}) => {
     return {
         forecastArr: historyForecats,
-        latestForecast
+        latestForecast,
+        errorMsg
     }
 }
 

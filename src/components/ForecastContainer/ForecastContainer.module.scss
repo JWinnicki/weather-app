@@ -21,18 +21,6 @@
     grid-template-rows: 20% 10% 1fr;
     justify-items: center;
 
-    &Description {
-        display: grid;
-        place-items: center;
-        width: 100%;
-        text-transform: uppercase;
-        grid-row: 2 / 3;
-
-        &Text {
-            font-size: 1.8rem;
-        }
-    }
-
     &Content {
         grid-row: 3 / 4;
         width: 100%;

@@ -7,7 +7,7 @@ import GeneralInformationContainer from '../GeneralInformationContainer/GeneralI
 import DetailsInformationContainer from '../DetailsInformationContainer/DetailsInformationContainer';
 import WeatherDescription from '../WeatherDescription/WeatherDescription';
 
-const ForecastContainer = ({forecastArr, latestForecast, mainContainer}) => {
+const ForecastContainer = ({forecastArr, latestForecast, mainContainer, errorMsg}) => {
 
     const [index, setIndex] = useState(0);
     const [view, setView] = useState('General');
@@ -49,24 +49,36 @@ const ForecastContainer = ({forecastArr, latestForecast, mainContainer}) => {
         }
     }
 
+    const renderCard = () => {
+        if(errorMsg) {
+            return <p>{errorMsg}</p>
+        } else {
+            return(
+                <>
+                    <TitleControls 
+                        decreaseCounter={decreaseCounter}
+                        increaseCounter={increaseCounter}
+                        name={forecastArr[index].name}
+                    />
+                    <WeatherDescription description={forecastArr[index].weather[0].description}/>
+                    <div className={styles.ForecastContainerContent}>
+                        <div className={styles.ForecastContainerContentToggler}>
+                            <Toggler 
+                                options={['General', 'Details']}
+                                click={setView}
+                                currentValue={view}
+                            />
+                        </div>
+                        {renderContent()}
+                    </div>  
+                </>
+            );
+        }
+    }
+
     return (
         <div className={styles.ForecastContainer}>
-            <TitleControls 
-                decreaseCounter={decreaseCounter}
-                increaseCounter={increaseCounter}
-                name={forecastArr[index].name}
-            />
-            <WeatherDescription description={forecastArr[index].weather[0].description}/>
-            <div className={styles.ForecastContainerContent}>
-                <div className={styles.ForecastContainerContentToggler}>
-                    <Toggler 
-                        options={['General', 'Details']}
-                        click={setView}
-                        currentValue={view}
-                    />
-                </div>
-                {renderContent()}
-            </div>
+            {renderCard()}
         </div>
     );
 }

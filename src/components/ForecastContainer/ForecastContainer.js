@@ -6,6 +6,7 @@ import Toggler from '../Toggler/Toggler';
 import GeneralInformationContainer from '../GeneralInformationContainer/GeneralInformationContainer';
 import DetailsInformationContainer from '../DetailsInformationContainer/DetailsInformationContainer';
 import WeatherDescription from '../WeatherDescription/WeatherDescription';
+import ErrorWrapper from '../ErrorWrapper/ErrorWrapper';
 
 const ForecastContainer = ({forecastArr, latestForecast, mainContainer, errorMsg}) => {
 
@@ -51,7 +52,7 @@ const ForecastContainer = ({forecastArr, latestForecast, mainContainer, errorMsg
 
     const renderCard = () => {
         if(errorMsg) {
-            return <p>{errorMsg}</p>
+            return <ErrorWrapper>{errorMsg}</ErrorWrapper>
         } else {
             return(
                 <>

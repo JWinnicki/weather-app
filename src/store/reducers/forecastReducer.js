@@ -25,7 +25,8 @@ export default (state=initialState, action) => {
                 isLoading: false,
                 error: true,
                 errorMsg: action.errorMsg,
-                currentForecast: {}
+                currentForecast: {},
+                isTouched: true
             }
         case actionTypes.SEARCH_SUCCESS:
             return {

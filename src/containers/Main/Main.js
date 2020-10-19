@@ -7,10 +7,11 @@ import ForecastContainer from '../../components/ForecastContainer/ForecastContai
 
 const Main = ({forecastArr, latestForecast, errorMsg}) => {
     const mainContainer = useRef({});
+    const shouldAnimate = () => errorMsg || latestForecast.name;
     return (
         <div className={styles.Main} ref={mainContainer}>
             <SearchBar/>
-            {latestForecast.name && 
+            {shouldAnimate() && 
             <ForecastContainer 
                 forecastArr={forecastArr} 
                 latestForecast={latestForecast} 

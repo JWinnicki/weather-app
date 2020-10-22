@@ -5,14 +5,14 @@ import ForecastIconContainer from '../ForecastIconContainer/ForecastIconContaine
 
 const GeneralInformationContainer = ({iconCode, temperature}) => {
     return (
-        <>
+        <div className={styles.GeneralContainer}>
             <div className={styles.GeneralContainerIcon}>
                 <ForecastIconContainer 
                     code={iconCode}
                 />
             </div>
             <p className={styles.GeneralContainerText}>{Math.ceil(temperature)} °C</p>
-        </>
+        </div>
     );
 }
 

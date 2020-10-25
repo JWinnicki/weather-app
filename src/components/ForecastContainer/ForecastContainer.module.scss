@@ -7,7 +7,7 @@
     transform: translate(-50%, -43%);
     width: 80%;
     max-width: 40rem;
-    height: 45rem;
+    height: 40rem;
 
     background-color: white;
     border-radius: 10px;
@@ -24,7 +24,7 @@
         grid-row: 3 / 4;
         width: 100%;
         display: grid;
-        grid-template-rows: 12% 1fr;
+        grid-template-rows: 15% 1fr;
 
         &Toggler {
             grid-row: 1/2;

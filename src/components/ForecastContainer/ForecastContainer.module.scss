@@ -7,6 +7,7 @@
     transform: translate(-50%, -43%);
     width: 80%;
     max-width: 40rem;
+    min-width: 27rem;
     height: 40rem;
 
     background-color: white;
@@ -29,6 +30,18 @@
         &Toggler {
             grid-row: 1/2;
         }
+    }
+}
+
+@media (min-height: 600px) {
+    .ForecastContainer {
+        height: 45rem;
+    }
+}
+
+@media (min-height: 700px) {
+    .ForecastContainer {
+        height: 50rem;
     }
 }
 

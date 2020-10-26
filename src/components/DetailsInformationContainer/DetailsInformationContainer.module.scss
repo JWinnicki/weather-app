@@ -21,3 +21,16 @@
         }
     }
 }
+
+@media (min-height: 700px) {
+    .DetailsContainer {
+        &List {
+            width: 20rem;
+            &Item {
+                &Text {
+                    font-size: 2rem;
+                }
+            }
+        }
+    }
+}

@@ -12,13 +12,34 @@ import icon from '../../assets/magnifier.svg';
 
 const SearchBar = ({onSubmitHandler, isTouched, isLoading, latestForecast}) => {
     const [text, setText] = useState('');
+    const [shouldAnimationTrigger, setShouldAnimationTrigger] = useState(true);
 
     useEffect(() => {
         setText('');
     }, [latestForecast])
 
+    useEffect(() => {
+        if(isTouched) {
+            setTimeout(() => {
+                setShouldAnimationTrigger(false);
+            }, 1000);
+        }
+
+        return () => {};
+    }, [isTouched])
+
+    const selectClassName = () => {
+        if(!isTouched) {
+            return styles.SearchBar;
+        } else if(isTouched && shouldAnimationTrigger) {
+            return styles.SearchBarTouched;
+        } else {
+            return styles.SearchBarNoAnimation; 
+        }
+    }
+
     return (
-        <div className={isTouched ? styles.SearchBarTouched : styles.SearchBar}>
+        <div className={selectClassName()}>
             <div className={styles.SearchBarInputContainer}>
                 <SearchInput
                     type='text'

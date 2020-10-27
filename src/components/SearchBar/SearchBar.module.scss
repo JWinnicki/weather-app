@@ -19,4 +19,10 @@
         transform: translateY(-40vh);
         transition: all 1s ease-in;
     }
+
+    &NoAnimation {
+        @extend .SearchBar;
+        transform: translateY(-40vh);
+        transition-duration: 0;
+    }
 }

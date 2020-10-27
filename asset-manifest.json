@@ -1,17 +1,17 @@
 {
   "files": {
-    "main.css": "/weather-app/static/css/main.6526808e.chunk.css",
-    "main.js": "/weather-app/static/js/main.0f1e41a7.chunk.js",
-    "main.js.map": "/weather-app/static/js/main.0f1e41a7.chunk.js.map",
+    "main.css": "/weather-app/static/css/main.c245886a.chunk.css",
+    "main.js": "/weather-app/static/js/main.9efdab52.chunk.js",
+    "main.js.map": "/weather-app/static/js/main.9efdab52.chunk.js.map",
     "runtime-main.js": "/weather-app/static/js/runtime-main.e6f382d7.js",
     "runtime-main.js.map": "/weather-app/static/js/runtime-main.e6f382d7.js.map",
-    "static/js/2.cfefea5b.chunk.js": "/weather-app/static/js/2.cfefea5b.chunk.js",
-    "static/js/2.cfefea5b.chunk.js.map": "/weather-app/static/js/2.cfefea5b.chunk.js.map",
+    "static/js/2.5c75732c.chunk.js": "/weather-app/static/js/2.5c75732c.chunk.js",
+    "static/js/2.5c75732c.chunk.js.map": "/weather-app/static/js/2.5c75732c.chunk.js.map",
     "index.html": "/weather-app/index.html",
-    "precache-manifest.1017b486b693633111f32e91d7f1af6d.js": "/weather-app/precache-manifest.1017b486b693633111f32e91d7f1af6d.js",
+    "precache-manifest.f3920cdcb275a21b5b49b4af3bcdb71f.js": "/weather-app/precache-manifest.f3920cdcb275a21b5b49b4af3bcdb71f.js",
     "service-worker.js": "/weather-app/service-worker.js",
-    "static/css/main.6526808e.chunk.css.map": "/weather-app/static/css/main.6526808e.chunk.css.map",
-    "static/js/2.cfefea5b.chunk.js.LICENSE.txt": "/weather-app/static/js/2.cfefea5b.chunk.js.LICENSE.txt",
+    "static/css/main.c245886a.chunk.css.map": "/weather-app/static/css/main.c245886a.chunk.css.map",
+    "static/js/2.5c75732c.chunk.js.LICENSE.txt": "/weather-app/static/js/2.5c75732c.chunk.js.LICENSE.txt",
     "static/media/clouds.svg": "/weather-app/static/media/clouds.36a2dca2.svg",
     "static/media/cloudy-day.svg": "/weather-app/static/media/cloudy-day.3340ef46.svg",
     "static/media/exclamation-mark.svg": "/weather-app/static/media/exclamation-mark.fbd33943.svg",
@@ -26,8 +26,8 @@
   },
   "entrypoints": [
     "static/js/runtime-main.e6f382d7.js",
-    "static/js/2.cfefea5b.chunk.js",
-    "static/css/main.6526808e.chunk.css",
-    "static/js/main.0f1e41a7.chunk.js"
+    "static/js/2.5c75732c.chunk.js",
+    "static/css/main.c245886a.chunk.css",
+    "static/js/main.9efdab52.chunk.js"
   ]
 }

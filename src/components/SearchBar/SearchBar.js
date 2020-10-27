@@ -22,7 +22,7 @@ const SearchBar = ({onSubmitHandler, isTouched, isLoading, latestForecast}) => {
         if(isTouched) {
             setTimeout(() => {
                 setShouldAnimationTrigger(false);
-            }, 1000);
+            }, 1500);
         }
 
         return () => {};

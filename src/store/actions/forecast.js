@@ -34,7 +34,6 @@ export const search = city => {
                 dispatch(searchFail(''));
             } else {
                 dispatch(searchFail(error.response.data.message));
-                console.log(error.response.data.message);
             }
         }
     }

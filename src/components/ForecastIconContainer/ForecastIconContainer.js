@@ -11,7 +11,7 @@ import thunderIcon from '../../assets/thunder.svg';
 
 const ForecastIconContainer = ({code}) => {
 
-    const [icon, setIcon] = useState(null);
+    const [icon, setIcon] = useState(sunIcon);
 
     useEffect(() => {
         const newCode = Number(code.slice(0,2));

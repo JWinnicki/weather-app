@@ -8,11 +8,10 @@ import DetailsInformationContainer from '../DetailsInformationContainer/DetailsI
 import WeatherDescription from '../WeatherDescription/WeatherDescription';
 import ErrorWrapper from '../ErrorWrapper/ErrorWrapper';
 
-const ForecastContainer = ({forecastArr, latestForecast, mainContainer, errorMsg}) => {
+const ForecastContainer = ({forecastArr, latestForecast, errorMsg}) => {
 
     const [index, setIndex] = useState(0);
     const [view, setView] = useState('General');
-    //console.log(mainContainer.current.offsetWidth);
 
     useEffect(() => {
         setIndex(0);

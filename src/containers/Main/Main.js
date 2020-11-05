@@ -1,4 +1,4 @@
-import React, {useRef} from 'react';
+import React from 'react';
 import {connect} from 'react-redux';
 
 import styles from './Main.module.scss';
@@ -6,16 +6,14 @@ import SearchBar from '../../components/SearchBar/SearchBar';
 import ForecastContainer from '../../components/ForecastContainer/ForecastContainer';
 
 const Main = ({forecastArr, latestForecast, errorMsg}) => {
-    const mainContainer = useRef({});
     const shouldAnimate = () => errorMsg || latestForecast.name;
     return (
-        <div className={styles.Main} ref={mainContainer}>
+        <div className={styles.Main}>
             <SearchBar/>
             {shouldAnimate() && 
             <ForecastContainer 
                 forecastArr={forecastArr} 
-                latestForecast={latestForecast} 
-                mainContainer={mainContainer}
+                latestForecast={latestForecast}
                 errorMsg={errorMsg}
             />}
         </div>

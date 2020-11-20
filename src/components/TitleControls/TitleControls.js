@@ -36,7 +36,7 @@ const TitleControls = ({decreaseCounter, increaseCounter, name}) => {
     useEffect(() => {
         checkIfFit();
         return () => {};
-    }, [name]); //Dopisac warunek zeby sie odswiezalo przy zmianie rozdzielczosci
+    }, [name]);
 
     const increaseHandler = () => {
         increaseCounter();

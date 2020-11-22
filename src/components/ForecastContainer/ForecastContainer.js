@@ -17,13 +17,13 @@ const ForecastContainer = ({forecastArr, latestForecast, errorMsg}) => {
         setIndex(0);
     }, [latestForecast]);
 
-    const increaseCounter = () => {
+    const decreaseCounter = () => {
         if(index > 0) {
             setIndex(prev => prev - 1)
         }
     }
 
-    const decreaseCounter = () => {
+    const increaseCounter = () => {
         if(index < forecastArr.length - 1) {
             setIndex(prev => prev + 1)
         }

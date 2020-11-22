@@ -7,21 +7,21 @@ import MenuButton from './MenuButton';
 describe('MenuButton', () => {
     afterEach(cleanup);
 
-    test('if button is rendered', ()=> {
+    test('if button is rendered', () => {
         render(<MenuButton data-testid="button">Hello</MenuButton>);
 
         const button = screen.getByTestId('button');
         expect(button).toBeInTheDocument();
     });
 
-    test('if text is rendered (button is empty)', ()=> {
+    test('if text is rendered (button is empty)', () => {
         render(<MenuButton data-testid="button"></MenuButton>);
 
         const button = screen.getByTestId('button');
         expect(button).toBeEmpty();
     });
 
-    test('if text is rendered (button is not empty)', ()=> {
+    test('if text is rendered (button is not empty)', () => {
         render(<MenuButton>Hello</MenuButton>);
 
         const button = screen.getByText('Hello');

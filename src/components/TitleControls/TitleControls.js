@@ -48,10 +48,10 @@ const TitleControls = ({decreaseCounter, increaseCounter, name}) => {
 
     return (         
         <div className={styles.TitleControls}>
-            <MenuButton onClick={decreaseHandler} style={{borderTopLeftRadius: '10px'}}>
+            <MenuButton onClick={increaseHandler} style={{borderTopLeftRadius: '10px'}}>
                 <SVGBackground icon={menuIcon} rotate='90'/>
             </MenuButton>
-            <MenuButton onClick={increaseHandler} style={{borderTopRightRadius: '10px'}}>
+            <MenuButton onClick={decreaseHandler} style={{borderTopRightRadius: '10px'}}>
                 <SVGBackground icon={menuIcon} rotate='270'/>
             </MenuButton>
             <div className={styles.TitleControlsHeader} ref={headerContainer}>

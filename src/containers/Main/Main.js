@@ -10,7 +10,7 @@ const Main = ({forecastArr, latestForecast, errorMsg}) => {
     return (
         <div className={styles.Main}>
             <SearchBar/>
-            {shouldAnimate() && 
+            {shouldAnimate() &&
             <ForecastContainer 
                 forecastArr={forecastArr} 
                 latestForecast={latestForecast}
